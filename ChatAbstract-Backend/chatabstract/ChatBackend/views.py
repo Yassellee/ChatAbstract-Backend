@@ -25,7 +25,7 @@ def generate_prompt(operation) -> str:
     prompt = "The original text is <" + str(operation["text"])+">. "
     sentence = str(operation["text"])[int(operation["start_index"]):int(operation["end_index"])]
     prompt += "For sentence <" + sentence + ">, whose start index is " + str(operation["start_index"]) + " and end index is " + str(operation["end_index"]) + ", " + "the user's comment is " + operation["comment"] + "."
-    prompt += "Notice only the sentence mentioned should be changed. Give me the changed version of the whole text, along with the changed part's start index and end index in the form of json, with three keys: text, start_index and end_index.  Your response should only contain json data. If the action is deletion, omit the start_index and end_index keys in your response."
+    prompt += "Notice only the sentence mentioned should be changed.You should respond with only one json object.Give me only a json object containing the whole text after change,the changed sentence's start index and end index in the form of json, with three keys: text, start_index and end_index."
     return prompt
 
 
@@ -34,7 +34,7 @@ def init(request): # stat conversation with gpt
     text = "I want you to act as my academic writing mentor and polish my essay according to my instructions."
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -52,7 +52,7 @@ def chat(request): # chat with gpt
     print(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -79,7 +79,7 @@ def respond_with_string(request): # get answer and return the answer with json f
     print(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -119,7 +119,7 @@ def respond_with_json(request): # get answer and return the answer with json for
     #rint(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
