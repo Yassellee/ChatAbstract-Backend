@@ -4,7 +4,7 @@ from django.db import models
 
 class Chat(models.Model):
     text = models.TextField(max_length=10000)
-    prompt = models.TextField(max_length=10000)
+    #prompt = models.TextField(max_length=10000)
     gpt = models.TextField(max_length=20000)
     #datetime = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
