@@ -34,7 +34,7 @@ def init(request): # stat conversation with gpt
     text = "I want you to help me modify a given text based on given user's comments. Your response should only contain a json object with two keys: text, sentence. Text means the whole text after the change, sentence means the part of the text that is changed. Respond a yes if you understand."
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -52,7 +52,7 @@ def chat(request): # chat with gpt
     print(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -79,7 +79,7 @@ def respond_with_string(request): # get answer and return the answer with json f
     print(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
@@ -119,7 +119,7 @@ def respond_with_json(request): # get answer and return the answer with json for
     #rint(text)
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
-    openai.api_key = "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"
+    openai.api_key = "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"
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         temperature=0.8,
