@@ -24,14 +24,14 @@ def generate_prompt(operation) -> str:
     """
     prompt = "The original text is <" + str(operation["text"])+">. "
     sentence = str(operation["text"])[int(operation["start_index"]):int(operation["end_index"])]
-    prompt += "For sentence <" + sentence + ">, whose start index is " + str(operation["start_index"]) + " and end index is " + str(operation["end_index"]) + ", " + "the user's comment is " + operation["comment"] + "."
-    prompt += "Notice only the sentence mentioned should be changed.You should respond with only one json object.Give me only a json object containing the whole text after change,the changed sentence's start index and end index in the form of json, with three keys: text, start_index and end_index."
+    prompt += "For part <" + sentence + ">, " + "the user's comment is <" + operation["comment"] + ">."
+    prompt += "Notice only the mentioned part should be changed. Your response should only contain a json object with two keys: text, sentence. Text means the whole text after the change, sentence means the part of the text that is changed."
     return prompt
 
 
 @csrf_exempt
 def init(request): # stat conversation with gpt
-    text = "I want you to act as my academic writing mentor and polish my essay according to my instructions."
+    text = "I want you to help me modify a given text based on given user's comments. Your response should only contain a json object with two keys: text, sentence. Text means the whole text after the change, sentence means the part of the text that is changed. Respond a yes if you understand."
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
     openai.api_key = "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"
